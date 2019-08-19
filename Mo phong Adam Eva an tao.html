@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="evaEat()">Eva</button>
+<button type="button" onclick="adamEat()">Adam</button>
+<br/>
+
+<script>
+    let Apple = function (weight) {
+        this.weight = weight;
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.setWeight = function (weight) {
+            this.weight = weight;
+        };
+        this.decreaseApple = function () {
+            this.weight -= 1;
+        };
+        this.isEmpty = function () {
+            if(this.weight>0){
+                return false;
+            }else if(this.weight==0){
+                return true
+            }
+        };
+    };
+    let Human = function (name,gender,weightn) {
+        this.name = "";
+        this.gender = true;
+        this.weightn = weightn;
+        this.getName = function () {
+            return this.name;
+        };
+        this.getGender = function () {
+            return this.gender;
+        };
+        this.getWeightn = function () {
+            return this.weightn;
+        };
+        this.setWeightn = function (weightn) {
+            this.weightn += weightn ;
+        };
+        this.eatApple = function (Apple) {
+            if(Apple.isEmpty()){
+                alert("Tao da het");
+            }else {
+                Apple.decreaseApple();
+                this.weightn++;
+            }
+        };
+        this.say = function (x) {
+            alert( x +" Lam mieng");
+        }
+    };
+    let Apple1 = new Apple(10);
+    let Adam = new Human("Adam",true,80);
+    let Eva = new Human("Eva",false,65);
+    function evaEat() {
+        Eva.eatApple(Apple1);
+        Eva.say("Adam");
+        console.log(Apple1.getWeight());
+        console.log(Eva.getWeightn());
+    }
+    function adamEat() {
+        Adam.eatApple(Apple1);
+        Adam.say("Eva");
+        console.log(Apple1.getWeight());
+        console.log(Adam.getWeightn());
+    }
+</script>
+</body>
+</html>
